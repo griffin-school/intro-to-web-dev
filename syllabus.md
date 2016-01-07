@@ -15,7 +15,9 @@ Experience with a command line environment .
 Experience with git.
 
 ## Grading
+
 | Category | Percent |
+ --------- | ------- | 
 | Classwork/Participation | 35% |
 | Assignments | 50% |
 | Final Project | 15% |
