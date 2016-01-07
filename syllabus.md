@@ -23,12 +23,12 @@ Experience with git.
 | Final Project | 15% |
 
 ## Milestones
-Learn a new programming language
-Learn web framework through online course
-Setup local environment
-Create basic application using the official guide
-Build blog the old way
-Update blog to SPA architecture
+* Learn a new programming language
+* Learn web framework through online course
+* Setup local environment
+* Create basic application using the official guide
+* Build blog the old way
+* Update blog to SPA architecture
 
 
 ## Student Success
