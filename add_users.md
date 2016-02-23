@@ -20,7 +20,7 @@ We are going to be plugging in an existing Auth system into our rails apps calle
 
 ### Create a database migration to add the new fields to User and Article
 ```
-bin/rails generate migration AddUserToArticles 
+$ bin/rails generate migration AddUserToArticles 
 ```
 ![Migration](./migration.png?raw=true "Optional Title")
 
