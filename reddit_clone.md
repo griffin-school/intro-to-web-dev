@@ -9,6 +9,7 @@
   - Either require login for the whole site or
   - Have a link to a sign in page
   - Have a form to log in 
+  
 ### Channel Page
 - Display the *Channel* Title
 - List of Posts
@@ -17,6 +18,7 @@
   - Or a Form on the page to create a new post
 - Voting*
   - The *User* should be able to upvote or down vote a *Channel*
+  
 ### Post Page
  - Display *Post* Title/Body
  - Display all of the *Comments* and *Replies*
