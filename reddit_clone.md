@@ -23,5 +23,3 @@
  - Voting
   - The user should be able to upvote or downvote the Post and any of the Comments 
 
-
-### Voting (nice to have)
