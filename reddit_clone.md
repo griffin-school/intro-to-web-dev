@@ -22,6 +22,6 @@
 ### Post Page
  - Display *Post* Title/Body
  - Display all of the *Comments* and *Replies*
- - Voting
+ - Voting*
   - The user should be able to upvote or downvote the Post and any of the Comments 
 
