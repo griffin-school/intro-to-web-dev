@@ -27,5 +27,4 @@ The purpose of these exercises is to update all of your existing controller meth
 - Create a new Comment
 - Get the Comment you created
 - Update the Comment you created
-- Destroy the Destroy you created
-- 
+- Destroy the Comment you created
