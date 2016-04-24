@@ -11,7 +11,7 @@ Install [Postman](https://www.getpostman.com/) and [Postman Interceptor](https:/
 ![Create Channel](./images/new_channel.png?raw=true "Optional Title")
 
 ## Exercises
-The purpose of these exercises is to update all of your existing controller methods to respond to JSON in addition to HTML
+The purpose of these exercises is to update all of your existing controller methods to respond to JSON in addition to HTML. See the example [Channels Controller](./channels_controller.rb)
 
 - Get all Channels
 - Create a new Channel
