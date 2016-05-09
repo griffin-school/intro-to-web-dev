@@ -15,7 +15,6 @@ The goal to create two pages using angular:
 ![Angular Show](./channel-show.png?raw=true "Optional Title")
  
 
-
 ## Create Rails Controller
 - Generate a new controller. I called mine `angular`
 - Add an empty method called `index`
@@ -138,6 +137,12 @@ The angular app needs to post and fetch data from your Rails server. The code fo
   };
   ...
 ```
+
+## Add angular Controllers
+
+## Create Channel directive
+
+## Add angular views 
 
 ## Add Angular routes
 We are transitioning our Reddit clone from Web 2.0 to web 2.5 which means that the client side is responsible for routing and template rendering.
