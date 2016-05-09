@@ -2,14 +2,28 @@
 We will now transition our Reddit clone from a Rails app rendered on the server side to a Single Page App (SPA) 
 rendered on the client side.
 
-## Create Controller
+Some of these instructions are intentionally incomplete because I want you to figure things out on your own. For instance, **Generate a new controller. I called mine `angular`**, if you don't remember how to generate a controlle rin rails, Google for it.
+
+## Goal
+The goal to create two pages using angular:
+
+1. The root page that shows a list of Channels. The Channel title should be a link to the Channel *show* angular page
+![Angular Root](./angular-root.png?raw=true "Optional Title")
+
+2. A Channel *show* page that shows a single Channel.
+
+![Angular Show](./channel-show.png?raw=true "Optional Title")
+ 
+
+
+## Create Rails Controller
 - Generate a new controller. I called mine `angular`
 - Add an empty method called `index`
 
-## Create View
+## Create Rails View
 Create a new file for the angular controller's index action `index.html.erb`
 
-## Add a route 
+## Add a Rails route 
 Add a route for the url `http://localhost:3000/angular` to the `index` method of your angular controller
 
 ## Add angular script tags 
@@ -85,6 +99,50 @@ $locationProvider.html5Mode({
 ```
 
 ## Create resources service
-The angular app needs to post and fetch data from your Rails server. The code for this will live in a service called `resources` 
-    
+The angular app needs to post and fetch data from your Rails server. The code for this will live in a service called `resources`
+- Create a new service called `resources`
+- Create a function to `all` that uses `$http` to get all of the Channels.
+
+#### Example
+```javascript
+  ...
+  // Reference codecademy Create Service section
+  var channels = {};
+  channels.all = function() {
+    return $http.get('/channels')
+            .success(function(data) {
+              return data;
+            })
+            .error(function(err) {
+              return err;
+            });
+
+  }
+  ...
+```
+
+- Create a function called `show` that uses `$http` to get a single Channel.
+
+#### Example
+```javascript
+  ...
+  // Reference codecademy Create Service section
+  channels.show = function(id) {
+    return $http.get('/channels/' + id)
+            .success(function(data) {
+              return data;
+            })
+            .error(function(err) {
+              return err;
+            });
+  };
+  ...
+```
+
+## Add Angular routes
+We are transitioning our Reddit clone from Web 2.0 to web 2.5 which means that the client side is responsible for routing and template rendering.
+
+- Add an angular route to handle the angular root url `/angular`
+- Add an angular route to show one Channel `/angular/channels/5`
+
 
