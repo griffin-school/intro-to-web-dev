@@ -140,6 +140,10 @@ The angular app needs to post and fetch data from your Rails server. The code fo
               return err;
             });
   };
+  
+  return {
+    channels: channels
+  };
   ...
 ```
 
