@@ -2,7 +2,13 @@
 We will now transition our Reddit clone from a Rails app rendered on the server side to a Single Page App (SPA) 
 rendered on the client side.
 
-Some of these instructions are intentionally incomplete because I want you to figure things out on your own. For instance, **Generate a new controller. I called mine `angular`**, if you don't remember how to generate a controlle rin rails, Google for it.
+Some of these instructions are intentionally incomplete because I want you to figure things out on your own. For instance, **Generate a new controller. I called mine `angular`**, if you don't remember how to generate a controller in rails, Google for it.
+
+## Angular transformation strategy
+Whenever you create angular code refer back to Codecademy Learn AngularJS. One strategy is to copy/paste existing code 
+as a starting point. 
+
+If you need to create a new angular route, look at the routing section. If you need to create a new directive, look at the directive section.
 
 ## Goal
 The goal to create two pages using angular:
@@ -16,7 +22,7 @@ The goal to create two pages using angular:
  
 
 ## Create Rails Controller
-- Generate a new controller. I called mine `angular`
+- Generate a new Rails controller. I called mine `angular`
 - Add an empty method called `index`
 
 ## Create Rails View
@@ -35,7 +41,7 @@ Add these script tags to your application layout to include the AngularJS librar
 ## Create angular file structure
 All of the angular files are *static* HTML/JS files so they will live in the `assets/javascripts/` folder.
 
-This is what the angular directory should look like
+This is what the angular directory should look like when you finish this guide
 
 ```
 /app/assets/javascripts/angular
@@ -57,24 +63,25 @@ This is what the angular directory should look like
 - Create a new folder in `assets/javascripts` called `angular`
 - Create two new folders in `angular`: `js` and `views`
 - In `js` create three new folders: `: `controllers`, `directives`, `services`
-- In `js` create a file called app.js
+- In `js` create a file called `app.js`
 - In `js/controllers` create a file called `MainController.js`
-- in 'views` create a new file called `main.html`
-
-## Angular transformation strategy
-Whenever you create angular code refer back to Codecademy Learn AngularJS. One strategy is to copy/paste existing code 
-as a starting point. 
-
-If you need to create a new angular route, look at the routing section. If you need to create a new directive, look at the directive section.
+- in `views` create a new file called `main.html`
 
 ## Update index.html.erb
 *Do not use any `erb` statements in this view.*
 
-To run your angular application code, you need to include it in `index.html.erb`. See examples from `index.html` on codecademy.
+To run your angular application code, you need to include it using `<script>` tags in `index.html.erb`. See examples from `index.html` on codecademy.
 
+You also need a little HTML to bootstrap the view.
+```html
+<div ng-app="myApp"> <!-- Use you're app name -->
+  <div ng-view></div>
+</div>
+```
 
 ## Inside app.js
 - Create a new app with `ngRoute` dependency.
+- I called mine `myApp` 
 
 #### Configure Headers for $http
 ```javascript
@@ -83,8 +90,6 @@ app.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.headers.common['Content-type'] = 'application/json';
 }]);
 ```
-
-- Create route for `/angular/` and default route to `/angular`
 
 #### Pretty URL's
 Angular was created before HTML5. It had to use a `#` in URL's to do custom routing. Add this to your app config if you 
@@ -139,15 +144,49 @@ The angular app needs to post and fetch data from your Rails server. The code fo
 ```
 
 ## Add angular Controllers
+- Create an angular controller to handle your root page. 
+  - I called mine `MainController`
+  - The root page shows a list of channels so this controller needs to get the list of all channels using the `resources` service
+- Create an angular controller to show a single Channel. 
+  - I called mine `ChannelController`
+  - You need to create a new file for this controller in `/app/assets/javascripts/anguar/js/controllers`
+  - The controller will need to look up a channel given an `id` param using the `resources` service.
 
 ## Create Channel directive
+In web 2.5 and beyond most frameworks offer the ability to create custom html elements or *web components*. In angular, these components are called diretives. They give you the ability to create your own html tags like: `<channel></channel>` 
+
+#### Create a custom directive to dispalay a channel.
+- I called mine `channel` 
+- The javascript and html files go in the `/app/assets/javscripts/angular/js/directives` directory
+- Refer to codecademy's section on directives. 
+- Remeber that the channel's title needs to be a link to the channel show page.
 
 ## Add angular views 
+You will need to create views for the root page and the channels *show* page
+
+#### Root page view
+The root page view will use the `<channel>` directive to display a list of channels. 
+
+Hints:
+- Use the `views/main.html` file you crated earlier
+- You need to wire up the controller using `ng-controller`
+- You will loop through all of the channels provided by the controller using `ng-repeat`
+
+#### Channel show view
+The root page will use the `channel` directive to display a single channel
+
+Hint:
+- Create a new HTML file: `/app/assets/javscripts/angular/views/channel.html` 
+- You need to wire up the controller using `ng-controller`
 
 ## Add Angular routes
 We are transitioning our Reddit clone from Web 2.0 to web 2.5 which means that the client side is responsible for routing and template rendering.
 
 - Add an angular route to handle the angular root url `/angular`
+ - The controller for this route is your main controller
+ - The templateUrl for this route is your main view
 - Add an angular route to show one Channel `/angular/channels/5`
+   - The controller for this route is your channel show controller
+   - The templateUrl for this route is your channel show view
 
 
