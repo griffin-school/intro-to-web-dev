@@ -11,7 +11,7 @@ as a starting point.
 If you need to create a new angular route, look at the routing section. If you need to create a new directive, look at the directive section.
 
 ## Goal
-The goal to create two pages using angular:
+The goal for these instructions is to create two pages using angular:
 
 1. The root page that shows a list of Channels. The Channel title should be a link to the Channel *show* angular page
 ![Angular Root](./angular-root.png?raw=true "Optional Title")
