@@ -192,5 +192,17 @@ We are transitioning our Reddit clone from Web 2.0 to web 2.5 which means that t
 - Add an angular route to show one Channel `/angular/channels/5`
    - The controller for this route is your channel show controller
    - The templateUrl for this route is your channel show view
+  
+#### Update Rails Routes
+You need to update the Rails routes so that URL's that start with `/angular` are also handled by the Rails `AngularController`.
 
+Add this to your `routes.rb`
+```ruby
+  get 'angular/*other' => 'angular#index'
+```
 
+## Try it out
+You should now be able to:
+- Go to `http://localhost:3000/angular` and see a list of channels 
+- Click on the title of a Channel which should take you to something like `http://localhost:3000/angular/channels/5`
+- On `http://localhost:3000/angular/channels/5` you should see the Channel details
